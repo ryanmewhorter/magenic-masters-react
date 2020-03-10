@@ -4,7 +4,7 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { loadFontAwesomeIcons } from 'src/utils/FontAwesome';
-import { ReduxState } from 'src/store/Store';
+import { StoreState } from 'src/store/Store';
 import Home from 'src/pages/Home/Home';
 import Products from 'src/pages/Products/Products';
 import Inventory from 'src/pages/Inventory/Inventory';
@@ -19,21 +19,9 @@ function App(): JSX.Element {
             <BrowserRouter>
                 <Header />
                 <Switch>
-                    <Route
-                        exact
-                        path='/'
-                        component={Home}
-                    />
-                    <Route
-                        exact
-                        path='/products'
-                        component={Products}
-                    />
-                    <Route
-                        exact
-                        path='/inventory'
-                        component={Inventory}
-                    />
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/products" component={Products} />
+                    <Route exact path="/inventory" component={Inventory} />
                     <Route component={Home} />
                 </Switch>
             </BrowserRouter>
@@ -41,7 +29,7 @@ function App(): JSX.Element {
     );
 }
 
-const mapStateToProps = (state: ReduxState) => ({
+const mapStateToProps = (state: StoreState) => ({
     // themeType: state.theme.themeType
 });
 

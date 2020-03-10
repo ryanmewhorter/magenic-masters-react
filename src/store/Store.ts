@@ -2,17 +2,17 @@
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import * as Theme from 'src/store/Theme';
+import * as Products from 'src/store/Products';
 
 const reducers = {
-    theme: Theme.reducer
+    products: Products.reducer
 };
 
 const rootReducer = combineReducers({
     ...reducers
 });
 
-export type ReduxState = ReturnType<typeof rootReducer>;
+export type StoreState = ReturnType<typeof rootReducer>;
 
 export default function configureStore() {
     const middleware = [thunk];
